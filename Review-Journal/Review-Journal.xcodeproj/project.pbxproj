@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C336AAF2AA97140007FB396 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C336AAE2AA97140007FB396 /* AppDelegate.swift */; };
 		0C336AB12AA97140007FB396 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C336AB02AA97140007FB396 /* SceneDelegate.swift */; };
-		0C336AB32AA97140007FB396 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C336AB22AA97140007FB396 /* ViewController.swift */; };
 		0C336AB62AA97140007FB396 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C336AB42AA97140007FB396 /* Main.storyboard */; };
 		0C336AB82AA97144007FB396 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C336AB72AA97144007FB396 /* Assets.xcassets */; };
 		0C336ABB2AA97144007FB396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C336AB92AA97144007FB396 /* LaunchScreen.storyboard */; };
@@ -39,7 +38,6 @@
 		0C336AAB2AA97140007FB396 /* Review-Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Review-Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C336AAE2AA97140007FB396 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C336AB02AA97140007FB396 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0C336AB22AA97140007FB396 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0C336AB52AA97140007FB396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C336AB72AA97144007FB396 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C336ABA2AA97144007FB396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +47,9 @@
 		0C336ACB2AA97145007FB396 /* Review-JournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Review-JournalUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C336ACF2AA97145007FB396 /* Review_JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review_JournalUITests.swift; sourceTree = "<group>"; };
 		0C336AD12AA97145007FB396 /* Review_JournalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review_JournalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0C336ADE2AA971AF007FB396 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		0C336AE02AA97200007FB396 /* ReviewListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListTableViewController.swift; sourceTree = "<group>"; };
+		0C336AE22AA97299007FB396 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +102,13 @@
 			children = (
 				0C336AAE2AA97140007FB396 /* AppDelegate.swift */,
 				0C336AB02AA97140007FB396 /* SceneDelegate.swift */,
-				0C336AB22AA97140007FB396 /* ViewController.swift */,
 				0C336AB42AA97140007FB396 /* Main.storyboard */,
 				0C336AB72AA97144007FB396 /* Assets.xcassets */,
 				0C336AB92AA97144007FB396 /* LaunchScreen.storyboard */,
 				0C336ABC2AA97144007FB396 /* Info.plist */,
+				0C336ADE2AA971AF007FB396 /* Review.swift */,
+				0C336AE02AA97200007FB396 /* ReviewListTableViewController.swift */,
+				0C336AE22AA97299007FB396 /* ReviewViewController.swift */,
 			);
 			path = "Review-Journal";
 			sourceTree = "<group>";
@@ -258,9 +261,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C336AB32AA97140007FB396 /* ViewController.swift in Sources */,
 				0C336AAF2AA97140007FB396 /* AppDelegate.swift in Sources */,
 				0C336AB12AA97140007FB396 /* SceneDelegate.swift in Sources */,
+				0C336AE32AA97299007FB396 /* ReviewViewController.swift in Sources */,
+				0C336ADF2AA971AF007FB396 /* Review.swift in Sources */,
+				0C336AE12AA97200007FB396 /* ReviewListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
