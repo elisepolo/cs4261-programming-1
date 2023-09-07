@@ -1,13 +1,13 @@
 //
-//  NotesUITestsLaunchTests.swift
-//  NotesUITests
+//  Review_JournalUITestsLaunchTests.swift
+//  Review-JournalUITests
 //
 //  Created by Elise Polo on 9/6/23.
 //
 
 import XCTest
 
-final class NotesUITestsLaunchTests: XCTestCase {
+final class Review_JournalUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

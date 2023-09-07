@@ -1,14 +1,14 @@
 //
-//  NotesTests.swift
-//  NotesTests
+//  Review_JournalTests.swift
+//  Review-JournalTests
 //
 //  Created by Elise Polo on 9/6/23.
 //
 
 import XCTest
-@testable import Notes
+@testable import Review_Journal
 
-final class NotesTests: XCTestCase {
+final class Review_JournalTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
