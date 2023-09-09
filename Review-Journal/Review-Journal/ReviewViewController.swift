@@ -10,14 +10,28 @@ import UIKit
 class ReviewViewController: UIViewController {
     
     @IBOutlet weak var titleTextField: UITextField!
-        @IBOutlet weak var bodyTextView: UITextView!
+    @IBOutlet weak var bodyTextView: UITextView!
+    
+    var review: Review?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configureUI()
     }
     
+    private func configureUI() {
+        if let review = self.review {
+            self.title = review.title
+            self.titleTextField.text = review.title
+            self.bodyTextView.text = review.body
+        } else {
+            self.title = "New Review"
+            self.titleTextField.text = "New Review"
+            self.bodyTextView.text = nil
+        }
+    }
 
     /*
     // MARK: - Navigation

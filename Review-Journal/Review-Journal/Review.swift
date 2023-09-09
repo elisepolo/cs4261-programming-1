@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Note {
+class Review {
     var title: String
     var body: String
     var lastUpdated: Date
