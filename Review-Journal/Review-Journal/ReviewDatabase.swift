@@ -28,6 +28,13 @@ class ReviewDatabase {
         synchronize()
     }
     
+    func update(review: Review) {
+        if let index = reviews.firstIndex(where: { $0.title == review.title }) {
+            reviews[index] = review
+            synchronize()
+        }
+    }
+    
     private func synchronize() {
         reviews.sort(by: { $0.lastUpdated > $1.lastUpdated })
     }

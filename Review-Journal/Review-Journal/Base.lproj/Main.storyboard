@@ -45,7 +45,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="qAZ-Dg-aNR" kind="show" id="XP0-3l-X6q"/>
+                                            <segue destination="qAZ-Dg-aNR" kind="show" identifier="Review Segue" id="XP0-3l-X6q"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

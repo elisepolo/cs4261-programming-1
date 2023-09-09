@@ -30,15 +30,30 @@ class ReviewListTableViewController: UIViewController, UITableViewDataSource {
         self.tableView.dataSource = self
         self.title = "Reviews"
         
-        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newReview))
+            self.navigationItem.rightBarButtonItem = addButton
     }
     
-
+    @objc private func newReview() {
+        self.performSegue(withIdentifier: "Review Segue", sender: nil)
+    }
+    
+    private func update(review: Review) {
+        reviewDatabase.update(review: review)
+        tableView.reloadData()
+    }
+    
+    private func saveNew(review: Review) {
+        reviewDatabase.saveNew(review: review)
+        tableView.reloadData()
+    }
 
 
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let reviewVC = segue.destination as? ReviewViewController { // 1
             // Show existing note
+        reviewVC.updateNotification = self.update
+        reviewVC.saveNotification = self.saveNew
             if let selectedCell = sender as? UITableViewCell,
                 let selectedIndex = tableView.indexPath(for: selectedCell) { // 2
                 reviewVC.review = self.reviewDatabase.review(atIndex: selectedIndex.row) // 3

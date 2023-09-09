@@ -13,12 +13,34 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var bodyTextView: UITextView!
     
     var review: Review?
+    
+    var updateNotification: ((Review) -> Void)?
+    
+    var saveNotification: ((Review) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         configureUI()
+        
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc private func save() {
+        let newTitle = self.titleTextField.text ?? "New Note"
+        let newBody = self.bodyTextView.text ?? ""
+        if let review = self.review {
+            review.title = newTitle
+            review.body = newBody
+            review.lastUpdated = Date()
+            self.updateNotification?(review)
+        } else {
+            let newReview = Review(title: newTitle, body: newBody, lastUpdated: Date())
+            self.saveNotification?(newReview)
+        }
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     private func configureUI() {
