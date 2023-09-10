@@ -19,9 +19,9 @@ class ReviewDatabase {
     init() {
         ref = Database.database().reference()
         saveNew(review: Review(title: "First", body: "First Test Note", lastUpdated: Date()))
-        self.ref.child("Reviews").child("3").setValue(["body": "username"])
+        self.ref.child("Reviews").child("1").setValue(["title" : "First", "body": "First Test Note"])
         saveNew(review: Review(title: "Second", body: "Second Test Note", lastUpdated: Date()))
-        self.ref.child("Reviews").child("4").setValue(["body": "username2"])
+        self.ref.child("Reviews").child("2").setValue(["title" : "Second", "body": "Second Test Note"])
     }
     
     var countReviews: Int {
@@ -34,6 +34,7 @@ class ReviewDatabase {
     
     func saveNew(review: Review) {
         reviews.append(review)
+        self.ref.child("Reviews").child(String(countReviews)).setValue(["title" : review.title, "body": review.body])
         synchronize()
     }
     
