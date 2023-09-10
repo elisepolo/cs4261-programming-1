@@ -6,13 +6,22 @@
 //
 
 import Foundation
+import FirebaseCore
+import FirebaseDatabase
+
+
+
 
 class ReviewDatabase {
     private var reviews: [Review] = []
+    var ref: DatabaseReference!
     
     init() {
+        ref = Database.database().reference()
         saveNew(review: Review(title: "First", body: "First Test Note", lastUpdated: Date()))
+        self.ref.child("Reviews").child("3").setValue(["body": "username"])
         saveNew(review: Review(title: "Second", body: "Second Test Note", lastUpdated: Date()))
+        self.ref.child("Reviews").child("4").setValue(["body": "username2"])
     }
     
     var countReviews: Int {
