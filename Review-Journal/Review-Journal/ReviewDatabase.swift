@@ -18,6 +18,16 @@ class ReviewDatabase {
     
     init() {
         ref = Database.database().reference()
+        ref.child("Reviews").getData(completion:  { error, snapshot in
+          guard error == nil else {
+            print(error!.localizedDescription)
+            return;
+          }
+            let reviews = snapshot?.value
+            print(reviews)
+        });
+        
+        
         saveNew(review: Review(title: "First", body: "First Test Note", lastUpdated: Date()))
         self.ref.child("Reviews").child("1").setValue(["title" : "First", "body": "First Test Note"])
         saveNew(review: Review(title: "Second", body: "Second Test Note", lastUpdated: Date()))
