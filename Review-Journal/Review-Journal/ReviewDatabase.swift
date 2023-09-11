@@ -15,6 +15,7 @@ import FirebaseDatabase
 class ReviewDatabase {
     private var reviews: [Review] = []
     var ref: DatabaseReference!
+    weak var delegate: UpdateDelegate?
     
     init() {
         ref = Database.database().reference()
@@ -33,10 +34,9 @@ class ReviewDatabase {
             // Now that data is loaded, you can perform any UI updates or additional setup here.
             // For example, you can reload a table view or collection view if you're using one.
             synchronize()
+            self.delegate?.didUpdate(sender: self)
         })
         
-        saveNew(review: Review(title: "First", body: "First Test Note", lastUpdated: Date()))
-        self.ref.child("Reviews").child("1").setValue(["title": "First", "body": "First Test Note"])
     }
 
     
@@ -64,4 +64,10 @@ class ReviewDatabase {
     private func synchronize() {
         reviews.sort(by: { $0.lastUpdated > $1.lastUpdated })
     }
+    
+    
+
+}
+protocol UpdateDelegate : class {
+    func didUpdate(sender: ReviewDatabase)
 }
