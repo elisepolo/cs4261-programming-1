@@ -18,21 +18,27 @@ class ReviewDatabase {
     
     init() {
         ref = Database.database().reference()
-        ref.child("Reviews").getData(completion:  { error, snapshot in
-          guard error == nil else {
-            print(error!.localizedDescription)
-            return;
-          }
-            let reviews = snapshot?.value
-            print(reviews)
-        });
         
+        ref.child("Reviews").getData(completion:  { [self] error, snapshot in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            for child in snapshot?.children.allObjects as! [DataSnapshot] {
+                let dict = child.value as? [String: AnyObject] ?? [:]
+                saveNew(review: Review(title: dict["title"] as! String, body: dict["body"] as! String, lastUpdated: Date()))
+            }
+            
+            // Now that data is loaded, you can perform any UI updates or additional setup here.
+            // For example, you can reload a table view or collection view if you're using one.
+            synchronize()
+        })
         
         saveNew(review: Review(title: "First", body: "First Test Note", lastUpdated: Date()))
-        self.ref.child("Reviews").child("1").setValue(["title" : "First", "body": "First Test Note"])
-        saveNew(review: Review(title: "Second", body: "Second Test Note", lastUpdated: Date()))
-        self.ref.child("Reviews").child("2").setValue(["title" : "Second", "body": "Second Test Note"])
+        self.ref.child("Reviews").child("1").setValue(["title": "First", "body": "First Test Note"])
     }
+
     
     var countReviews: Int {
         return reviews.count
