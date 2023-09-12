@@ -35,7 +35,7 @@ class ReviewDatabase {
             // For example, you can reload a table view or collection view if you're using one.
             synchronize()
             self.delegate?.didUpdate(sender: self)
-            saveNew(review: Review(title: "Hello", body: "World", date: Date()))
+            saveNew(review: Review(title: "Hi", body: "Bye", date: Date()))
         })
         
     }
