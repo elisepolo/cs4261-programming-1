@@ -28,14 +28,14 @@ class ReviewDatabase {
             
             for child in snapshot?.children.allObjects as! [DataSnapshot] {
                 let dict = child.value as? [String: AnyObject] ?? [:]
-                // saveNew(review: Review(title: dict["title"] as! String, body: dict["body"] as! String, lastUpdated: Date()))
+                saveNew(review: Review(title: dict["title"] as! String, body: dict["body"] as! String, lastUpdated: Date()))
             }
             
             // Now that data is loaded, you can perform any UI updates or additional setup here.
             // For example, you can reload a table view or collection view if you're using one.
             synchronize()
             self.delegate?.didUpdate(sender: self)
-            saveNew(review: Review(title: "Hi", body: "Bye", date: Date()))
+            //saveNew(review: Review(title: "Hi", body: "Bye", date: Date()))
         })
         
     }
