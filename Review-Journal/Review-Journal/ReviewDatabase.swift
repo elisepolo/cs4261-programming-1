@@ -28,7 +28,7 @@ class ReviewDatabase {
             
             for child in snapshot?.children.allObjects as! [DataSnapshot] {
                 let dict = child.value as? [String: AnyObject] ?? [:]
-                saveNew(review: Review(title: dict["title"] as! String, body: dict["body"] as! String, lastUpdated: Date()))
+                // saveNew(review: Review(title: dict["title"] as! String, body: dict["body"] as! String, lastUpdated: Date()))
             }
             
             // Now that data is loaded, you can perform any UI updates or additional setup here.
